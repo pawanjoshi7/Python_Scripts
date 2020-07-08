@@ -1,0 +1,16 @@
+from netmiko import Netmiko
+from netmiko import ConnectHandler
+    
+Dic_switch = {
+    'device_type': 'cisco_ios',
+    'ip' : '1.1.1.1',
+    'username': 'cisco',
+    'password': 'cisco'
+}
+net_connect = ConnectHandler(**Dic_switch)
+config_commands = ['int loop 1', 'ip address 11.11.11.11 255.255.255.255']
+output = net_connect.send_config_set(config_commands)
+print(output)
+
+
+

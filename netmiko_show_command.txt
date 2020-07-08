@@ -1,0 +1,15 @@
+from netmiko import Netmiko
+from netmiko import ConnectHandler
+my_device = {  "device_type": "cisco_ios",
+    "host": "1.1.1.1",
+    "username": "cisco",
+    "password": "cisco",
+    
+}
+
+net_connect = Netmiko(**my_device)
+
+output = net_connect.send_command("show ip int brief")
+print(output)
+
+net_connect.disconnect()
